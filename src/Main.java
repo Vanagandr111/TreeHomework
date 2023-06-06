@@ -9,7 +9,7 @@ public class Main {
 
   public static void main(String[] args) {
     List<Person> people = new ArrayList<>();
-    PersonComparator comparator = new PersonComparator();
+    PersonComparator comparator = new PersonComparator(6);
 
     people.add(new Person("Роман", "Маркелов", 24));
     people.add(new Person("Иван", "Быков", 37));
