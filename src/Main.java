@@ -30,6 +30,7 @@ public class Main {
 
     //Удаляем людей младше 18 лет
     people.removeIf(person -> person.getAge() < 18);
+
     Collections.sort(people, comparator);
 
     String output = people.toString();
