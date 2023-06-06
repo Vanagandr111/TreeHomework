@@ -14,20 +14,22 @@ public class Main {
     people.add(new Person("Роман", "Маркелов", 24));
     people.add(new Person("Иван", "Быков", 37));
     people.add(new Person("Игорь", "Покровский", 22));
-    people.add(new Person("Ярослав", "Астафьев", 40));
-    people.add(new Person("Лев", "Головин", 26));
+    people.add(new Person("Ярослав", "Астафьев", 16));
+    people.add(new Person("Лев", "Головин", 16));
     people.add(new Person("Мирон", "Павлов", 25));
-    people.add(new Person("Ярослав", "Филатов", 33));
+    people.add(new Person("Ярослав", "Филатов", 11));
     people.add(new Person("Александр", "Волков", 21));
     people.add(new Person("Артём", "Степанов", 32));
-    people.add(new Person("Тихон", "Тарасов", 38));
+    people.add(new Person("Тихон", "Тарасов", 17));
     people.add(new Person("Марат", "Серов", 28));
-    people.add(new Person("Кирилл", "Леонов", 40));
-    people.add(new Person("Даниил", "Константинов", 31));
+    people.add(new Person("Кирилл", "Леонов", 14));
+    people.add(new Person("Даниил", "Константинов", 13));
     people.add(new Person("Александр", "Панков", 31));
     people.add(new Person("Андрей", "Кондратьев", 33));
     people.add(new Person("Леон", "Панфилов", 35));
 
+    //Удаляем людей младше 18 лет
+    people.removeIf(person -> person.getAge() < 18);
     Collections.sort(people, comparator);
 
     String output = people.toString();
