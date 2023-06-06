@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -9,7 +10,18 @@ public class Main {
 
   public static void main(String[] args) {
     List<Person> people = new ArrayList<>();
-    PersonComparator comparator = new PersonComparator(6);
+    Comparator<Person> comparator;
+
+    comparator = (p1, p2) -> {
+      boolean surnameNoCheck = p1.getSurname().length() > 6 && p2.getSurname().length() > 6;
+      boolean currentMoreThanOther = p1.getSurname().length() > p2.getSurname().length();
+      boolean surnameEquals = p1.getSurname().length() == p2.getSurname().length();
+
+      boolean currentOlderThanOther = p1.getAge() > p2.getAge();
+      boolean ageEquals = p1.getAge() == p2.getAge();
+
+      return surnameNoCheck ? (currentOlderThanOther ? 1 : ageEquals ? 0 : -1) : currentMoreThanOther ? 1 : !surnameEquals ? -1 : currentOlderThanOther ? 1 : ageEquals ? 0 : -1;
+    };
 
     people.add(new Person("Роман", "Маркелов", 24));
     people.add(new Person("Иван", "Быков", 37));
